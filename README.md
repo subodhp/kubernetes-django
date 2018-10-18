@@ -30,22 +30,24 @@ managed version of Kubernetes called [Google Container Engine][GKE]
 
    2. Install the [command line interface][gcp-sdk].
 
-   3. Create a project (that we'll refer to henceforth as
+   3. Use gcloud init --console-only to initialize the GCP using offline token from browser authentication to google account. 
+
+   4. Create a project (that we'll refer to henceforth as
       `$GCP_PROJECT`) using the web interface.
 
-   4. Now, we're ready to set some basic configuration.
+   5. Now, we're ready to set some basic configuration.
       ````
       gcloud config set project $GCP_PROJECT
       gcloud config set compute/zone europe-west1-d
       ````
 
-   5. Then we create the cluster itself.
+   6. Then we create the cluster itself.
       ````
       gcloud container clusters create demo
       gcloud container clusters list
       ````
 
-   6. Finally, we configure `kubectl` to talk to the cluster.
+   7. Finally, we configure `kubectl` to talk to the cluster.
       ````
       gcloud container clusters get-credentials demo
       kubectl get nodes
